@@ -12,7 +12,7 @@ export async function createUser(data: {
   })
 
   if (existingUser) {
-    throw new Error("User already exists")
+    throw new Error("Usuário já existe")
   }
 
   const hashedPassword = await hash(data.password, 10)

@@ -11,12 +11,12 @@ export default async function DashboardPage() {
   return (
     <div className="min-h-screen p-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold mb-4">Dashboard</h1>
+        <h1 className="text-4xl font-bold mb-4">Painel</h1>
         <p className="text-gray-600 mb-8">
-          Welcome back, {session.user?.name || session.user?.email}!
+          Bem-vindo de volta, {session.user?.name || session.user?.email}!
         </p>
         <div className="bg-white p-6 rounded-lg shadow">
-          <p>Your bio pages will appear here.</p>
+          <p>Suas páginas bio aparecerão aqui.</p>
         </div>
       </div>
     </div>

@@ -65,7 +65,7 @@ describe('auth actions', () => {
     })
 
     it('should handle user creation errors', async () => {
-      ;(createUser as jest.Mock).mockRejectedValue(new Error('User already exists'))
+      ;(createUser as jest.Mock).mockRejectedValue(new Error('Usuário já existe'))
 
       const formData = new FormData()
       formData.append('email', 'existing@example.com')
@@ -74,7 +74,7 @@ describe('auth actions', () => {
       const result = await signUp(formData)
 
       expect(result.success).toBe(false)
-      expect(result.error).toBe('User already exists')
+      expect(result.error).toBe('Usuário já existe')
     })
 
     it('should work without optional name field', async () => {

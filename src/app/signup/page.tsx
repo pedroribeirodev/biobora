@@ -31,12 +31,12 @@ export default function SignUpPage() {
     setError(null)
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match")
+      setError("As senhas não coincidem")
       return
     }
 
     if (password.length < 8) {
-      setError("Password must be at least 8 characters")
+      setError("A senha deve ter pelo menos 8 caracteres")
       return
     }
 
@@ -51,7 +51,7 @@ export default function SignUpPage() {
       const result = await signUp(formData)
 
       if (!result.success) {
-        setError(result.error || "Failed to create account")
+        setError(result.error || "Falha ao criar conta")
         setIsLoading(false)
         return
       }
@@ -63,14 +63,14 @@ export default function SignUpPage() {
       })
 
       if (signInResult?.error) {
-        setError("Account created but failed to sign in. Please try logging in.")
+        setError("Conta criada, mas falha ao entrar. Por favor, tente fazer login.")
         setIsLoading(false)
       } else if (signInResult?.ok) {
         router.push("/dashboard")
         router.refresh()
       }
     } catch {
-      setError("An error occurred. Please try again.")
+      setError("Ocorreu um erro. Por favor, tente novamente.")
       setIsLoading(false)
     }
   }
@@ -80,7 +80,7 @@ export default function SignUpPage() {
     try {
       await signIn("google", { callbackUrl: "/dashboard" })
     } catch {
-      setError("Failed to sign in with Google")
+      setError("Falha ao entrar com Google")
       setIsLoading(false)
     }
   }
@@ -90,31 +90,31 @@ export default function SignUpPage() {
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-center">
-            Create an account
+            Criar uma conta
           </CardTitle>
           <CardDescription className="text-center">
-            Get started with BioBora today
+            Comece com o BioBora hoje
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="name">Name (optional)</Label>
+              <Label htmlFor="name">Nome (opcional)</Label>
               <Input
                 id="name"
                 type="text"
-                placeholder="John Doe"
+                placeholder="João Silva"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 disabled={isLoading}
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">E-mail</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="you@example.com"
+                placeholder="seu@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -122,7 +122,7 @@ export default function SignUpPage() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">Senha</Label>
               <Input
                 id="password"
                 type="password"
@@ -134,7 +134,7 @@ export default function SignUpPage() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Confirm Password</Label>
+              <Label htmlFor="confirmPassword">Confirmar Senha</Label>
               <Input
                 id="confirmPassword"
                 type="password"
@@ -155,7 +155,7 @@ export default function SignUpPage() {
               className="w-full"
               disabled={isLoading}
             >
-              {isLoading ? "Creating account..." : "Create account"}
+              {isLoading ? "Criando conta..." : "Criar conta"}
             </Button>
           </form>
 
@@ -165,7 +165,7 @@ export default function SignUpPage() {
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-white px-2 text-gray-500">
-                Or continue with
+                Ou continue com
               </span>
             </div>
           </div>
@@ -192,14 +192,14 @@ export default function SignUpPage() {
                 d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
               ></path>
             </svg>
-            Continue with Google
+            Continuar com Google
           </Button>
         </CardContent>
         <CardFooter>
           <p className="text-sm text-center w-full text-gray-600">
-            Already have an account?{" "}
+            Já tem uma conta?{" "}
             <Link href="/login" className="text-blue-600 hover:underline font-medium">
-              Sign in
+              Entrar
             </Link>
           </p>
         </CardFooter>

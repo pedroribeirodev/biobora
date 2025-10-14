@@ -4,9 +4,9 @@ import { createUser } from "@/lib/auth-helpers"
 import { z } from "zod"
 
 const signUpSchema = z.object({
-  email: z.string().email("Invalid email address"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
-  name: z.string().min(2, "Name must be at least 2 characters").optional().or(z.literal("")),
+  email: z.string().email("Endereço de e-mail inválido"),
+  password: z.string().min(8, "A senha deve ter pelo menos 8 caracteres"),
+  name: z.string().min(2, "O nome deve ter pelo menos 2 caracteres").optional().or(z.literal("")),
 })
 
 export async function signUp(formData: FormData) {
@@ -35,13 +35,13 @@ export async function signUp(formData: FormData) {
       const firstError = error.issues?.[0]
       return {
         success: false,
-        error: firstError?.message || "Validation error"
+        error: firstError?.message || "Erro de validação"
       }
     }
 
     return {
       success: false,
-      error: error instanceof Error ? error.message : "Failed to create account"
+      error: error instanceof Error ? error.message : "Falha ao criar conta"
     }
   }
 }

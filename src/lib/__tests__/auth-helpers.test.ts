@@ -74,7 +74,7 @@ describe('auth-helpers', () => {
           email: 'existing@example.com',
           password: 'password123',
         })
-      ).rejects.toThrow('User already exists')
+      ).rejects.toThrow('Usuário já existe')
 
       expect(hash).not.toHaveBeenCalled()
       expect(prisma.user.create).not.toHaveBeenCalled()
