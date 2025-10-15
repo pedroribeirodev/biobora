@@ -59,20 +59,20 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-blue-50 to-indigo-100">
-      <Card className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-white to-slate-100">
+      <Card className="w-full max-w-md shadow-2xl border-slate-200">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-center">
+          <CardTitle className="text-2xl font-bold text-center text-slate-900">
             Bem-vindo ao BioBora
           </CardTitle>
-          <CardDescription className="text-center">
+          <CardDescription className="text-center text-slate-600">
             Entre na sua conta para continuar
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">E-mail</Label>
+              <Label htmlFor="email" className="text-slate-700 font-medium">E-mail</Label>
               <Input
                 id="email"
                 type="email"
@@ -84,7 +84,7 @@ export default function LoginPage() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Senha</Label>
+              <Label htmlFor="password" className="text-slate-700 font-medium">Senha</Label>
               <Input
                 id="password"
                 type="password"
